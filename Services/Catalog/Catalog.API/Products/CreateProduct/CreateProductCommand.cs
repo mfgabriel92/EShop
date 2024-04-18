@@ -5,7 +5,7 @@ namespace Catalog.API.Products.CreateProduct;
 public record CreateProductCommand(
     string Name,
     string Description,
-    List<string> Category,
+    List<string> Categories,
     string ImageFile,
     decimal Price
 ) : ICommand<CreateProductResult>;

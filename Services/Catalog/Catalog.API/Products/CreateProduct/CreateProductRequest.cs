@@ -1,9 +1,9 @@
 namespace Catalog.API.Products.CreateProduct;
 
-public abstract record CreateProductRequest(
+public record CreateProductRequest(
     string Name,
     string Description,
-    List<string> Category,
+    List<string> Categories,
     string ImageFile,
     decimal Price
 );

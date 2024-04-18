@@ -11,7 +11,7 @@ internal class CreateProductCommandHandler : ICommandHandler<CreateProductComman
         {
             Name = command.Name,
             Description = command.Description,
-            Category = command.Category,
+            Categories = command.Categories,
             ImageFile = command.ImageFile,
             Price = command.Price
         };

@@ -8,7 +8,7 @@ public class Product
 
     public string Description { get; set; } = default!;
 
-    public List<string> Category { get; set; } = [];
+    public List<string> Categories { get; set; } = [];
 
     public string ImageFile { get; set; } = default!;
     
