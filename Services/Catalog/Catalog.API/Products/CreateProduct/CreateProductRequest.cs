@@ -1,6 +1,6 @@
 namespace Catalog.API.Products.CreateProduct;
 
-public record CreateProductRequest(
+public abstract record CreateProductRequest(
     string Name,
     string Description,
     List<string> Category,
