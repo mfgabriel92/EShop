@@ -1,17 +1,8 @@
-﻿version: "3.4"
+version: '3.4'
 
 services:
   eshop_catalog-db:
     image: postgres
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=EShop_Catalog
-    restart: always
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_catalog:/var/lib/postgresql/data/
 
 volumes:
-  postgres_catalog:
+  postgres_eshop_catalog:

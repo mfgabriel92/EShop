@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>9202982b-b5d3-493b-9f84-9fa2b302d55e</UserSecretsId>
+        <DockerfileContext>..\..\..</DockerfileContext>
+        <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,12 +17,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj"/>
+        <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Carter" Version="8.0.0"/>
-        <PackageReference Include="Marten" Version="7.8.0"/>
+        <PackageReference Include="Carter" Version="8.0.0" />
+        <PackageReference Include="Marten" Version="7.8.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     </ItemGroup>
 
 </Project>
