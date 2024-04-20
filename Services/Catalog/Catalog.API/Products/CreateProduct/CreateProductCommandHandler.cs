@@ -1,18 +1,10 @@
 namespace Catalog.API.Products.CreateProduct;
 
-internal class CreateProductCommandHandler(IDocumentSession session, IValidator<CreateProductCommand> validator)
+internal class CreateProductCommandHandler(IDocumentSession session)
     : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        var validation = await validator.ValidateAsync(command, cancellationToken);
-        var errors = validation.Errors.Select(x => x.ErrorMessage).ToList();
-
-        if (errors.Count > 0)
-        {
-            throw new ValidationException(errors.FirstOrDefault());
-        }
-
         var product = new Product
         {
             Name = command.Name,
