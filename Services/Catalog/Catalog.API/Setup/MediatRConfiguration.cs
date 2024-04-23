@@ -1,5 +1,3 @@
-using BuildingBlocks.Behaviors;
-
 namespace Catalog.API.Setup;
 
 public static class MediatRConfiguration
