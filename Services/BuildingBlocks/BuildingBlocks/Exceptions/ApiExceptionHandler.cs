@@ -33,7 +33,7 @@ public class ApiExceptionHandler : IExceptionHandler
 
         if (ex is ValidationException validationException)
         {
-            problemDetails.Extensions.Add("ValidationErrors", validationException.Errors);
+            problemDetails.Extensions.Add("ValidationErrors", validationException.Errors.Select(e => e.ErrorMessage));
         }
 
         await ctx.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
