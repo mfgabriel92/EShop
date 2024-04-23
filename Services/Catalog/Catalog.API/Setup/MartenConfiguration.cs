@@ -2,7 +2,7 @@ namespace Catalog.API.Setup;
 
 public static class MartenConfiguration
 {
-    public static WebApplicationBuilder ConfigureMarten(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddMartenConfiguration(this WebApplicationBuilder builder)
     {
         builder.Services.AddMarten(opts =>
             {

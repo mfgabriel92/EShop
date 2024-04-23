@@ -2,7 +2,7 @@ namespace Catalog.API.Setup;
 
 public static class MediatRConfiguration
 {
-    public static WebApplicationBuilder ConfigureMediatR(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddMediatRConfiguration(this WebApplicationBuilder builder)
     {
         builder.Services.AddMediatR(config =>
         {
