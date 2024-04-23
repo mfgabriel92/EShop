@@ -1,5 +1,3 @@
-version: "3.4"
-
 services:
   eshop_catalog-db:
     container_name: eshop_catalog-db
@@ -12,6 +10,19 @@ services:
       - "5432:5432"
     volumes:
       - postgres_eshop_catalog:/var/lib/postgresql/data/
+
+  eshop_catalog-api:
+    container_name: eshop_catalog-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__Database=Server=eshop_catalog-db;Port=5432;Database=EShop_Catalog;User Id=postgres;Password=root;Include Error Detail=True
+    ports:
+      - "6000:8080"
+    depends_on:
+      - eshop_catalog-db
+    volumes:
+      - ${HOME}/
 
 volumes:
   postgres_eshop_catalog:
