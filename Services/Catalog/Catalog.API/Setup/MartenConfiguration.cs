@@ -1,5 +1,3 @@
-using Catalog.API.Data;
-
 namespace Catalog.API.Setup;
 
 public static class MartenConfiguration
