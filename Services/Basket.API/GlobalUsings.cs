@@ -5,6 +5,8 @@ global using Marten;
 global using FluentValidation;
 global using Basket.API.Models;
 global using Basket.API.Setup;
+global using Basket.API.Repositories;
+global using Basket.API.Exceptions;
 global using BuildingBlocks.CQRS;
 global using BuildingBlocks.Exceptions;
 global using BuildingBlocks.Behaviors;
