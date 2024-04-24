@@ -7,13 +7,9 @@ public static class MartenConfiguration
         builder.Services.AddMarten(opts =>
             {
                 opts.Connection(builder.Configuration.GetConnectionString("Database")!);
+                opts.Schema.For<ShoppingCart>().Identity(x => x.Username);
             })
             .UseLightweightSessions();
-
-        // if (builder.Environment.IsDevelopment())
-        // {
-        //     builder.Services.InitializeMartenWith<CatalogInitialData>();
-        // }
 
         return builder;
     }
