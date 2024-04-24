@@ -1,14 +1,16 @@
-version: '3.4'
-
 services:
   eshop_catalog-db:
+    image: postgres
+  
+  eshop_basket-db:
     image: postgres
   
   eshop_catalog-api:
     image: eshop_catalog-api
     build:
       context: .
-      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+      dockerfile: Services/Catalog.API/Dockerfile
 
 volumes:
   postgres_eshop_catalog:
+  postgres_eshop_basket:

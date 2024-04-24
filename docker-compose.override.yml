@@ -10,6 +10,19 @@ services:
       - "5432:5432"
     volumes:
       - postgres_eshop_catalog:/var/lib/postgresql/data/
+  
+  
+  eshop_basket-db:
+    container_name: eshop_basket-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=EShop_Basket
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_eshop_basket:/var/lib/postgresql/data/
 
   eshop_catalog-api:
     container_name: eshop_catalog-api
@@ -21,8 +34,7 @@ services:
       - "6000:8080"
     depends_on:
       - eshop_catalog-db
-    volumes:
-      - ${HOME}/
 
 volumes:
   postgres_eshop_catalog:
+  postgres_eshop_basket:
