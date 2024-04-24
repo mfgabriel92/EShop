@@ -1,10 +1,15 @@
 namespace Basket.API.Models;
 
-public class ShoppingCart(string username)
+public class ShoppingCart()
 {
-    public string Username { get; set; } = username;
+    public string Username { get; set; } = default!;
 
     public List<ShoppingCartItem> Items { get; set; } = [];
 
     public decimal TotalPrice => Items.Sum(i => i.Price * i.Quantity);
+
+    public ShoppingCart(string username) : this()
+    {
+        Username = username;
+    }
 }
