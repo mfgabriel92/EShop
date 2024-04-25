@@ -1,8 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCarter();
 builder.AddMediatRConfiguration();
 builder.AddMartenConfiguration();
+builder.AddRepositoryConfiguration();
+builder.Services.AddCarter();
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 builder.Services.AddExceptionHandler<ApiExceptionHandler>();
 

@@ -6,9 +6,7 @@ public class DeleteBasketEndpoint : ICarterModule
     {
         app.MapDelete("/basket/{username}", async (string username, ISender sender) =>
         {
-            var result = await sender.Send(new DeleteBasketCommand(username));
-            var response = result.Adapt<DeleteBasketResponse>();
-
+            await sender.Send(new DeleteBasketCommand(username));
             return Results.NoContent();
         });
     }

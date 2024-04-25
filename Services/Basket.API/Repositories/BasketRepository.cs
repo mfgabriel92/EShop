@@ -5,7 +5,7 @@ public class BasketRepository(IDocumentSession session) : IBasketRepository
     public async Task<ShoppingCart> GetBasketAsync(string username)
     {
         var basket = await session.LoadAsync<ShoppingCart>(username);
-        
+
         if (basket is null)
         {
             throw new BasketNotFoundException(username);
@@ -23,7 +23,14 @@ public class BasketRepository(IDocumentSession session) : IBasketRepository
 
     public async Task DeleteBasketAsync(string username)
     {
-        session.Delete(username);
+        var basket = await session.LoadAsync<ShoppingCart>(username);
+
+        if (basket is null)
+        {
+            throw new BasketNotFoundException(username);
+        }
+
+        session.Delete(basket);
         await session.SaveChangesAsync();
     }
 }
