@@ -3,6 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddMediatRConfiguration();
 builder.AddMartenConfiguration();
 builder.AddRepositoryConfiguration();
+builder.AddRedisConfiguration();
 builder.Services.AddCarter();
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 builder.Services.AddExceptionHandler<ApiExceptionHandler>();
