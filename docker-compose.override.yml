@@ -23,6 +23,11 @@ services:
       - "5433:5432"
     volumes:
       - postgres_eshop_basket:/var/lib/postgresql/data/
+  
+  eshop_redis:
+    container_name: eshop_redis
+    ports:
+      - "6374:6374"
 
   eshop_catalog-api:
     container_name: eshop_catalog-api

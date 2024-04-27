@@ -4,6 +4,9 @@ services:
   
   eshop_basket-db:
     image: postgres
+    
+  eshop_redis:
+    image: redis
   
   eshop_catalog-api:
     image: eshop_catalog-api
