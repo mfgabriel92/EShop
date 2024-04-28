@@ -14,6 +14,12 @@ services:
       context: .
       dockerfile: Services/Catalog.API/Dockerfile
 
+  eshop_basket-api:
+    image: eshop_basket-api
+    build:
+      context: .
+      dockerfile: Services/Basket.API/Dockerfile
+
 volumes:
   postgres_eshop_catalog:
   postgres_eshop_basket:

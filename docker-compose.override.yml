@@ -11,7 +11,6 @@ services:
     volumes:
       - postgres_eshop_catalog:/var/lib/postgresql/data/
   
-  
   eshop_basket-db:
     container_name: eshop_basket-db
     environment:
@@ -37,8 +36,29 @@ services:
       - ConnectionStrings__Database=Server=eshop_catalog-db;Port=5432;Database=EShop_Catalog;User Id=postgres;Password=root;Include Error Detail=True
     ports:
       - "6000:8080"
+      - "6060:8081"
     depends_on:
       - eshop_catalog-db
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aaspnet/https:ro
+
+  eshop_basket-api:
+    container_name: eshop_basket-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__Database=Server=eshop_basket-db;Port=5432;Database=EShop_Basket;User Id=postgres;Password=root;Include Error Detail=True
+      - ConnectionStrings__Redis=eshop_redis:6379
+    ports:
+      - "6001:8080"
+      - "6061:8081"
+    depends_on:
+      - eshop_basket-db
+      - eshop_redis
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aaspnet/https:ro
 
 volumes:
   postgres_eshop_catalog:
