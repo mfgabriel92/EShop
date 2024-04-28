@@ -27,7 +27,7 @@ services:
   eshop_redis:
     container_name: eshop_redis
     ports:
-      - "6374:6374"
+      - "6379:6379"
 
   eshop_catalog-api:
     container_name: eshop_catalog-api
