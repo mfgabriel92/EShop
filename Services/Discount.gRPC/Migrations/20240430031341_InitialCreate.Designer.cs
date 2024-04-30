@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Discount.gRPC.Migrations
 {
     [DbContext(typeof(DiscountContext))]
-    [Migration("20240430024646_InitialCreate")]
+    [Migration("20240430031341_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -39,6 +39,15 @@ namespace Discount.gRPC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Coupons");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Amount = 150,
+                            Description = "Dell Inspiron 7472 laptop, 16GB RAM, 128GB SSD, Intel i7 8th Gen.",
+                            ProductName = "Dell Inspiron 7472"
+                        });
                 });
 #pragma warning restore 612, 618
         }

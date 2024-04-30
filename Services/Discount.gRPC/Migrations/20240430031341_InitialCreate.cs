@@ -24,6 +24,11 @@ namespace Discount.gRPC.Migrations
                 {
                     table.PrimaryKey("PK_Coupons", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Coupons",
+                columns: new[] { "Id", "Amount", "Description", "ProductName" },
+                values: new object[] { 1, 150, "Dell Inspiron 7472 laptop, 16GB RAM, 128GB SSD, Intel i7 8th Gen.", "Dell Inspiron 7472" });
         }
 
         /// <inheritdoc />
