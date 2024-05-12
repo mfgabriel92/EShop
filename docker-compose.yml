@@ -1,21 +1,21 @@
 services:
-  eshop_catalog-db:
+  eshop_catalog.db:
     image: postgres
   
-  eshop_basket-db:
+  eshop_basket.db:
     image: postgres
     
   eshop_redis:
     image: redis
   
-  eshop_catalog-api:
-    image: eshop_catalog-api
+  eshop_catalog.api:
+    image: eshop_catalog.api
     build:
       context: .
       dockerfile: Services/Catalog.API/Dockerfile
 
-  eshop_basket-api:
-    image: eshop_basket-api
+  eshop_basket.api:
+    image: eshop_basket.api
     build:
       context: .
       dockerfile: Services/Basket.API/Dockerfile
