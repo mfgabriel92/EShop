@@ -4,6 +4,7 @@ builder.AddMediatRConfiguration();
 builder.AddMartenConfiguration();
 builder.AddRepositoryConfiguration();
 builder.AddRedisConfiguration();
+builder.AddGrpcConfiguration();
 builder.Services.AddCarter();
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 builder.Services.AddExceptionHandler<ApiExceptionHandler>();
