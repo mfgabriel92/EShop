@@ -1,13 +1,20 @@
 ﻿namespace Ordering.Domain.Models;
 
-public class OrderItem(decimal price, int quantity, Guid orderId, Guid productId) : Entity<Guid>
+public class OrderItem : Entity<OrderItemId>
 {
-    public decimal Price { get; private set; } = price;
+    public OrderItem(decimal price, int quantity, OrderId orderId, ProductId productId)
+    {
+        Price = price;
+        Quantity = quantity;
+        OrderId = orderId;
+        ProductId = productId;
+    }
 
-    public int Quantity { get; private set; } = quantity;
+    public decimal Price { get; private set; } = default!;
 
-    // EF
-    public Guid OrderId { get; private set; } = orderId;
+    public int Quantity { get; private set; } = default!;
 
-    public Guid ProductId { get; private set; } = productId;
+    public OrderId OrderId { get; private set; } = default!;
+
+    public ProductId ProductId { get; private set; } = default!;
 }
