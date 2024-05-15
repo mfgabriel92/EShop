@@ -2,9 +2,9 @@
 
 public record OrderId
 {
-    private OrderId(Guid value) => Value = value;
-
     public Guid Value { get; }
+
+    private OrderId(Guid value) => Value = value;
 
     public static OrderId Of(Guid value)
     {
